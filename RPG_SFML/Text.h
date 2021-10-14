@@ -28,7 +28,7 @@ public:
     }
 
     // DO NOT DELETE THE FONTS THEMSELVES
-    ~Text() { lato = nullptr; unicode = nullptr; }
+    ~Text() { lato = nullptr; unicode = nullptr; custom = nullptr; }
     
 public:
     sf::Text& getText() { return text; }
@@ -36,8 +36,10 @@ public:
     void font(int s){
         if (s == 0)
             text.setFont(*lato);
-        else
+        else if (s == 1)
             text.setFont(*unicode);
+        else if (s == 3)
+            text.setFont(*custom);
     }
     void font(Fonts s) {
         if (s == Fonts::lato)

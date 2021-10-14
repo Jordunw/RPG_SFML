@@ -29,7 +29,7 @@ void Game::init()
 	registerComponents();
 	loadText();
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		outputText.emplace_back(&lato, &unicode, &custom);
 		outputText.at(i).size(16);
@@ -52,7 +52,13 @@ void Game::init()
 	outputText[0].set(L"test BING BING BING");
 	outputText[1].set(L"TESTING AGAIN BING IBNG ");
 	outputText[2].set(L"LOLFJDKSLGJKL:AJKW");
-
+	outputText[3].set(L"Checking memory");
+	outputText[4].set(L"Checking memory");
+	outputText[5].set(L"Checking memory");
+	outputText[6].set(L"Checking memory");
+	outputText[7].set(L"Checking memory");
+	outputText[8].set(L"Checking memory");
+	outputText[9].set(L"Checking memory");
 }
 
 void Game::initializeSettings()
@@ -220,25 +226,11 @@ void Game::renderGame()
 {
 	window.clear();
 
-	window.setView(window.getDefaultView()); // reset view
 	// draw everything
 	borders.draw(window);
 
-	// change view to outputTextView
-	window.setView(outputTextView);
-
-	for (int i = 0; i < outputText.size(); i++)
-	{
-		if (i != 0) 
-		{
-			int length = outputText.at(i - 1).getText().getString().getSize() - 1;
-			outputText.at(i).setPos(sf::Vector2f(0, (outputText.at(i - 1).getText().findCharacterPos(length).y + static_cast<float>(outputText.at(i - 1).getText().getGlobalBounds().height) + outputText.at(i - 1).getText().getLineSpacing() * 6.0f)));
-		}
-		if (outputText.at(i).getText().getString().getSize() > 0)
-		{
-			outputText.at(i).draw(window);
-		}
-	}
+	// draw text output
+	outputManager.draw(window);
 
 	window.display();
 }

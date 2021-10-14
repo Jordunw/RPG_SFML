@@ -15,6 +15,7 @@
 #include "components.hpp"
 #include "InputManager.h"
 #include "EntityCreator.h"
+#include "OutputTextManager.h"
 
 class Game
 {
@@ -70,24 +71,11 @@ private:
 
 	Borders borders;
 
-	sf::Font lato, unicode, custom;
-	// map from string name to text value
-	//std::unordered_map<std::string, Text> textMap;
-	
-	std::vector<Text> outputText;
 	Text inputText;
 
-	// contains previous text
-	std::vector<std::wstring> outputTextCache;
-	std::vector<std::string> inputTextCache;
-
-	sf::View outputTextView;
-	sf::Vector2f textPosition;
+	OutputTextManager outputManager;
 
 	ecs::Coordinator coordinator;
 	ecs::EntityCreator entityCreator;
-
-	Sprite map = Sprite("resources/sprites/map.png", sf::IntRect(0, 0, 1280, 720), false);
-	Sprite tree = Sprite("resources/sprites/tree.png", 150, 150, true, true);
 };
 

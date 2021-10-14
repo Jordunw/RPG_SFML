@@ -79,6 +79,8 @@ namespace ecs
             throw std::runtime_error("somehow managed to pass in a nonexistent class to player creation function");
             break;
         }
+
+        return e;
     }
 
     // creates a new weapon entity
@@ -619,5 +621,7 @@ namespace ecs
             throw std::runtime_error("somehow tried to create a nonexistent potion type");
             break;
         }
+
+        return e;
     }
 }
