@@ -1,0 +1,116 @@
+{
+    "settingsData": {
+        "vsyncEnabled": true,
+        "screenW": 1920,
+        "screenH": 1080,
+        "windowStyle": 7,
+        "textColor": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+        },
+        "borderColor": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 255
+        },
+        "textSize": 16,
+        "textStyle": 0,
+        "textFont": 0,
+        "colorMap": [],
+        "saves": [
+            "test"
+        ],
+        "displayConfirmationOnExit": true,
+        "hMap": [],
+        "hCounter": 0
+    },
+    "archiveData": {
+        "playerData": {
+            "name": {
+                "name": "nigga"
+            },
+            "depth": {
+                "depth": 0.5
+            },
+            "xp": {
+                "xp": 0.0
+            },
+            "level": {
+                "level": 1
+            },
+            "inventory": {
+                "slots": 12,
+                "items": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "balance": {
+                "balance": 0.0
+            },
+            "velocity": {
+                "velocity": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            },
+            "entityType": {
+                "type": 3
+            },
+            "className": {
+                "className": "Fighter"
+            },
+            "description": {
+                "description": "A noble soldier of the people, skilled in combat and tactics."
+            },
+            "stats": {
+                "health": {
+                    "base": 20.0,
+                    "current": 20.0
+                },
+                "dexterity": 5.5,
+                "accuracy": 17.0,
+                "damage": 8.5
+            },
+            "status": {
+                "poisoned": 0,
+                "healing": 0,
+                "strengthened": 0,
+                "shielded": 0,
+                "weakened": 0,
+                "frightened": 0,
+                "quicker": 0,
+                "slower": 0,
+                "stunned": 0,
+                "poisoned_multi": 0.0,
+                "healing_multi": 0.0,
+                "strength_multi": 0.0,
+                "shield_multi": 0.0,
+                "weakened_multi": 0.0,
+                "frightened_multi": 0.0,
+                "quicker_multi": 0.0,
+                "slower_multi": 0.0,
+                "stunned_multi": 0.0
+            },
+            "levelUpStats": {
+                "health": 12.0,
+                "damage": 4.0,
+                "dexterity": 0.4000000059604645,
+                "accuracy": 0.6499999761581421
+            }
+        }
+    }
+}

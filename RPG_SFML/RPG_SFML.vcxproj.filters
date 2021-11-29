@@ -16,6 +16,12 @@
     <Filter Include="ECS">
       <UniqueIdentifier>{c76a6a9b-6ab0-4cc1-a180-1806604f39f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archive_Data">
+      <UniqueIdentifier>{85096f4f-8cee-4e9a-afe4-7e7050dc7ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{4c3584c5-8112-4359-a425-c34f324c4cc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -45,27 +51,21 @@
     <ClCompile Include="EntityCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ArchiveData.cpp">
+      <Filter>Archive_Data</Filter>
+    </ClCompile>
     <ClCompile Include="OutputTextManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Autocomplete.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.cpp">
+      <Filter>IO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Variables.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Potions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vertex.h">
@@ -104,8 +104,29 @@
     <ClInclude Include="EntityCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SettingsData.h">
+      <Filter>Archive_Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Serialization.h">
+      <Filter>Archive_Data</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchiveData.h">
+      <Filter>Archive_Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Hash.h">
+      <Filter>Archive_Data</Filter>
+    </ClInclude>
     <ClInclude Include="OutputTextManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Autocomplete.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.hpp">
+      <Filter>IO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

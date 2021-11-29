@@ -14,7 +14,7 @@ namespace ecs
         return e;
     }
 
-    Entity EntityCreator::createGeneralCharacter(std::string name, std::string textureLocation, sf::Vector2i pos, std::string description, float depth)
+    Entity EntityCreator::createGeneralCharacter(std::string name, std::string textureLocation, sf::Vector2f pos, std::string description, float depth)
     {
         Entity e = coordinator.createEntity();
         coordinator.addComponent<SpriteComponent>(e, { Sprite(textureLocation, pos.x, pos.y) });
@@ -311,7 +311,7 @@ namespace ecs
             coordinator.addComponent<WeaponType>(e, WeaponType::shortsword);
             coordinator.addComponent<Name>(e, { "Shortsword" });
             coordinator.addComponent<TwoHanded>(e, { false });
-            coordinator.addComponent<DamageMulti>(e, { 1.14 });
+            coordinator.addComponent<DamageMulti>(e, { 1.14f });
             coordinator.addComponent<BuyPrice>(e, {}); // NEED BUY PRICES FOR EVERYTHING
             coordinator.addComponent<SellPrice>(e, {}); // NEED SELL PRICES FOR EVERYTHING
             coordinator.addComponent<Equippable>(e, { Equippable::all });

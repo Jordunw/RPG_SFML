@@ -39,6 +39,7 @@ bool InputManager::isKeyPressed(unsigned int keyID)
 	return false;
 }
 
+
 bool InputManager::wasKeyDown(unsigned int keyID)
 {
 	auto i = prevKeyMap.find(keyID);

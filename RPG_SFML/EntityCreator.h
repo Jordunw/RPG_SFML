@@ -80,7 +80,7 @@ namespace ecs
 
 	public:
 		Entity createGeneralCharacter(std::string name, Sprite sprite, std::string description, float depth);
-		Entity createGeneralCharacter(std::string name, std::string textureLocation, sf::Vector2i pos, std::string description, float depth);
+		Entity createGeneralCharacter(std::string name, std::string textureLocation, sf::Vector2f pos, std::string description, float depth);
 		Entity createPlayer(PlayerClass pClass, std::string name);
 		Entity createWeapon(WeaponType wType);
 		Entity createArmor(ArmorType aType);

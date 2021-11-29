@@ -4,6 +4,7 @@
 #include <set>
 #include <memory>
 #include <unordered_map>
+#include <string>
 
 namespace ecs
 {
@@ -11,6 +12,7 @@ namespace ecs
 	{
 	public:
 		std::set<Entity> entities; // insert() and erase() autocheck if an entity is in the list & does nothing if it is already there
+
 	};
 
 	class SystemManager
@@ -27,8 +29,7 @@ namespace ecs
 		void entitySignatureChanged(Entity entity, Signature entitySignature);
 
 	private:
-		std::unordered_map<const char*, Signature> signatures{};
-		std::unordered_map<const char*, std::shared_ptr<System>> systems{};
+		std::unordered_map<std::string, Signature> signatures{};
+		std::unordered_map<std::string, std::shared_ptr<System>> systems{};
 	};
-
 }

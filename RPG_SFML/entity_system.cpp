@@ -5,7 +5,7 @@ namespace ecs
 	template<typename T>
 	std::shared_ptr<T> SystemManager::registerSystem()
 	{
-		const char* typeName = typeid(T).name();
+		std::string typeName = typeid(T).name();
 
 		assert(systems.find(typeName) == systems.end() && "Registering system more than once");
 
@@ -18,7 +18,7 @@ namespace ecs
 	template<typename T>
 	void SystemManager::setSignature(Signature signature)
 	{
-		const char* typeName = typeid(T).name();
+		std::string typeName = typeid(T).name();
 
 		assert(systems.find(typeName) != systems.end() && "System used before being registered");
 

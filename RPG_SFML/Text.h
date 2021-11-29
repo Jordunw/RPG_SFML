@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "RichText.hpp"
 #include <iostream>
 
 enum class Fonts {
@@ -7,75 +8,51 @@ enum class Fonts {
     lato = 1
 };
 
-enum class RotateDirection
+class Text
 {
-    clockwise = 0,
-    counterclockwise = 1
-};
-
-class Text {
 private:
-    sf::Font* lato;
-    sf::Font* unicode;
-    sf::Font* custom;
-    sf::Text text;
+    sfe::RichText text;
 
 public:
-    Text() {}
-    Text(sf::Font* lato, sf::Font* unicode, sf::Font* custom) : lato{ lato }, unicode{ unicode }, custom{ custom } {
-        text.setFont(*this->unicode);
-        text.setCharacterSize(24);
-    }
-
-    // DO NOT DELETE THE FONTS THEMSELVES
-    ~Text() { lato = nullptr; unicode = nullptr; custom = nullptr; }
-    
-public:
-    sf::Text& getText() { return text; }
-
-    void font(int s){
-        if (s == 0)
-            text.setFont(*lato);
-        else if (s == 1)
-            text.setFont(*unicode);
-        else if (s == 3)
-            text.setFont(*custom);
-    }
-    void font(Fonts s) {
-        if (s == Fonts::lato)
-            text.setFont(*lato);
-        else if (s == Fonts::unicode)
-            text.setFont(*unicode);
-    }
-    void set(char c) {
-        text.setString(c);
-    }
-    void set(const std::string& s) {
-        text.setString(s);
-    }
-    void set(const std::wstring& ws) {
-        text.setString(sf::String(ws));
-    }
-    void size(int s) {
-        text.setCharacterSize(s);
-    }
-    void setPos(const sf::Vector2f& pos)
+    Text(){}
+    Text(sf::Font& font,
+        const std::wstring& wstr,
+        const sf::Color& color,
+        const sf::Text::Style& style,
+        const int& size) 
     {
+        text = sfe::RichText(font);
+        text << style << color << wstr;
+        text.setCharacterSize(size);
+    }
+    ~Text() {}
+
+public:
+    // returns a reference to the sfe::RichText
+    sfe::RichText& getText() { 
+        return text; 
+    }
+    // sets the font of the whole line
+    void setFont(sf::Font& font) {
+        text.setFont(font);
+    }
+    // sets the size of the whole line
+    void setSize(int size) {
+        text.setCharacterSize(size);
+    }
+    // adds a string of text with the defined color and style
+    void addText(const std::wstring& str, const sf::Color& color, const sf::Text::Style& style) {
+        text << color << style << str;
+    }
+    // sets the pos of the top left corner
+    void setPos(const sf::Vector2f& pos) {
         text.setPosition(pos);
     }
-    void rotate(RotateDirection r)
-    {
-        if (r == RotateDirection::clockwise)
-            text.rotate(90);
-        else
-            text.rotate(-90);
+    // rotates the line of text by degrees (positive clockwise, negative counterclockwise)
+    void rotate(float degrees) {
+        text.rotate(degrees);
     }
-    void color(const sf::Color& c) {
-        text.setFillColor(c);
-    }
-    void style(const sf::Text::Style& style) {
-        text.setStyle(style);
-    }
+    // draws the text
     void draw(sf::RenderWindow& window) {
         window.draw(text);
     }

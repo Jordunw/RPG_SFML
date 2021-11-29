@@ -6,28 +6,28 @@ Borders::Borders()
 
 Borders::Borders(sf::FloatRect inputrect, sf::FloatRect outputrect, sf::FloatRect maprect, sf::FloatRect statsrect, float linew, sf::Color c = sf::Color::White)
 {
-	inputbox.setTexture(NULL);
+	inputbox.setTexture(nullptr);
 	inputbox.setPosition(inputrect.left, inputrect.top);
 	inputbox.setSize(sf::Vector2f(inputrect.width, inputrect.height));
 	color(Box::INPUT, sf::Color::Transparent);
 	inputbox.setOutlineThickness(linew);
 	colorOutline(Box::INPUT, c);
 
-	outputbox.setTexture(NULL);
+	outputbox.setTexture(nullptr);
 	outputbox.setPosition(outputrect.left, outputrect.top);
 	outputbox.setSize(sf::Vector2f(outputrect.width, outputrect.height));
 	color(Box::OUTPUT, sf::Color::Transparent);
 	outputbox.setOutlineThickness(linew);
 	colorOutline(Box::OUTPUT, c);
 
-	mapbox.setTexture(NULL);
+	mapbox.setTexture(nullptr);
 	mapbox.setPosition(maprect.left, maprect.top);
 	mapbox.setSize(sf::Vector2f(maprect.width, maprect.height));
 	color(Box::MAP, sf::Color::Transparent);
 	mapbox.setOutlineThickness(linew);
 	colorOutline(Box::MAP, c);
 
-	statsbox.setTexture(NULL);
+	statsbox.setTexture(nullptr);
 	statsbox.setPosition(statsrect.left, statsrect.top);
 	statsbox.setSize(sf::Vector2f(statsrect.width, statsrect.height));
 	color(Box::STATS, sf::Color::Transparent);
@@ -35,16 +35,20 @@ Borders::Borders(sf::FloatRect inputrect, sf::FloatRect outputrect, sf::FloatRec
 	colorOutline(Box::STATS, c);
 }
 
-Borders::~Borders()
-{
-}
-
 void Borders::draw(sf::RenderWindow& window) 
 {
 	window.draw(inputbox);
-	window.draw(outputbox);
+	sf::RenderStates rStates(texture);
+	window.draw(outputbox, rStates);
 	window.draw(mapbox);
 	window.draw(statsbox);
+}
+
+void Borders::setTexture(const std::string& filePath)
+{
+	texture->loadFromFile(filePath);
+	outputbox.setTexture(texture, true);
+	outputbox.setOutlineThickness(0);
 }
 
 void Borders::setBorders(float linew, sf::Color c)

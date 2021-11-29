@@ -2,6 +2,8 @@
 
 #include <glm/glm.hpp>
 
+#include "Serialization.h"
+
 #include <string>
 #include "Sprite.h"
 
@@ -20,6 +22,13 @@ namespace ecs
 		};
 
 		unsigned int type;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(type));
+		}
 	};
 	
 
@@ -31,32 +40,74 @@ namespace ecs
 	struct ClassName
 	{
 		std::string className;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(className));
+		}
 	};
 
 	struct Name
 	{
 		std::string name;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(name));
+		}
 	};
 
 	struct XP
 	{
 		float xp;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(xp));
+		}
 	};
 
 	struct Level
 	{
 		int level;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(level));
+		}
 	};
 
 	struct Inventory
 	{
 		int slots;
 		std::vector<Entity> items;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(slots), CEREAL_NVP(items));
+		}
 	};
 
 	struct Balance
 	{
 		float balance;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(balance));
+		}
 	};
 
 	struct Stats
@@ -65,10 +116,24 @@ namespace ecs
 		{
 			float base;
 			float current;
+
+			// SERIALIZATION
+			template<class Archive>
+			void serialize(Archive& archive)
+			{
+				archive(CEREAL_NVP(base), CEREAL_NVP(current));
+			}
 		} health;
 		float dexterity;
 		float accuracy;
 		float damage;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(health), CEREAL_NVP(dexterity), CEREAL_NVP(accuracy), CEREAL_NVP(damage));
+		}
 	};
 
 	// defines the increase in each stat a class gets on lvl up
@@ -78,6 +143,13 @@ namespace ecs
 		float damage;
 		float dexterity;
 		float accuracy;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(health), CEREAL_NVP(damage), CEREAL_NVP(dexterity), CEREAL_NVP(accuracy));
+		}
 	};
 
 	struct Status
@@ -103,16 +175,55 @@ namespace ecs
 		float quicker_multi;
 		float slower_multi;
 		float stunned_multi;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(
+				CEREAL_NVP(poisoned), 
+				CEREAL_NVP(healing), 
+				CEREAL_NVP(strengthened), 
+				CEREAL_NVP(shielded), 
+				CEREAL_NVP(weakened), 
+				CEREAL_NVP(frightened), 
+				CEREAL_NVP(quicker), 
+				CEREAL_NVP(slower), 
+				CEREAL_NVP(stunned), 
+				CEREAL_NVP(poisoned_multi), 
+				CEREAL_NVP(healing_multi), 
+				CEREAL_NVP(strength_multi), 
+				CEREAL_NVP(shield_multi), 
+				CEREAL_NVP(weakened_multi), 
+				CEREAL_NVP(frightened_multi), 
+				CEREAL_NVP(quicker_multi), 
+				CEREAL_NVP(slower_multi), 
+				CEREAL_NVP(stunned_multi));
+		}
 	};
 
 	struct Velocity
 	{
 		sf::Vector2f velocity;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(velocity));
+		}
 	};
 
 	struct Depth
 	{
 		float depth;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(depth));
+		}
 	};
 
 	struct TwoHanded
@@ -197,6 +308,13 @@ namespace ecs
 	struct Description
 	{
 		std::string description;
+
+		// SERIALIZATION
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(CEREAL_NVP(description));
+		}
 	};
 
 	struct ProtectionMulti

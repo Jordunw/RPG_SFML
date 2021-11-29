@@ -1,6 +1,7 @@
 #pragma once
 #include "entity_manager.hpp"
 #include "component_array.hpp"
+#include "Serialization.h"
 
 #include <memory>
 
@@ -13,7 +14,7 @@ namespace ecs
 		template<typename T>
 		inline void registerComponent()
 		{
-			const char* typeName = typeid(T).name();
+			std::string typeName = typeid(T).name();
 
 			assert(componentTypes.find(typeName) == componentTypes.end() && "Registering component type more than once");
 			// add this componentType to the map
@@ -27,7 +28,7 @@ namespace ecs
 		template<typename T>
 		inline ComponentType getComponentType()
 		{
-			const char* typeName = typeid(T).name();
+			std::string typeName = typeid(T).name();
 
 			assert(componentTypes.find(typeName) != componentTypes.end() && "Component not registered before use");
 
@@ -59,16 +60,16 @@ namespace ecs
 
 	private:
 		// map from string pointer to componentType
-		std::unordered_map<const char*, ComponentType> componentTypes{};
+		std::unordered_map<std::string, ComponentType> componentTypes{};
 		// map from string pointer to componentArray
-		std::unordered_map<const char*, std::shared_ptr<IComponentArray>> componentArrays{};
+		std::unordered_map<std::string, std::shared_ptr<IComponentArray>> componentArrays{};
 		// component type to be assigned to the next registered component - starts at 0
 		ComponentType nextComponentType{};
 
 		template<typename T>
 		inline std::shared_ptr<ComponentArray<T>> getComponentArray()
 		{
-			const char* typeName = typeid(T).name();
+			std::string typeName = typeid(T).name();
 
 			assert(componentTypes.find(typeName) != componentTypes.end() && "Component not registered before use");
 

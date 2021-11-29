@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/System.hpp>
+#include <SFML/Window/Event.hpp>
 #include <unordered_map>
+#include <string>
 
 class InputManager
 {

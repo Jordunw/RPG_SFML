@@ -2,11 +2,10 @@
 #include <SFML/Graphics.hpp>
 #include "Enum.h"
 
-constexpr float oneThird = 0.33333333333f;
-constexpr float twoThirds = 0.66666666666f;
-
 class Borders {
 private:
+	sf::Texture* texture;
+
 	sf::RectangleShape mapbox;
 	sf::RectangleShape statsbox;
 	sf::RectangleShape outputbox;
@@ -15,9 +14,10 @@ private:
 public:
 	Borders();
 	Borders(sf::FloatRect, sf::FloatRect, sf::FloatRect, sf::FloatRect, float, sf::Color);
-	~Borders();
+	~Borders() {}
 
 public:
+	void setTexture(const std::string& filePath);
 	void setBorders(float, sf::Color);
 	void draw(sf::RenderWindow& window);
 	void colorOutline(Box, sf::Color);

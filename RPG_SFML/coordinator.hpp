@@ -3,6 +3,7 @@
 #include "entity_manager.hpp"
 #include "entity_system.hpp"
 
+
 // linking / organization class for each manager class - makes for a much cleaner & simpler implementation
 
 // template functions must be implemented in the .hpp file (LNK2019 error)

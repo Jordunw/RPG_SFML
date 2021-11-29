@@ -1,6 +1,6 @@
 #pragma once
 #include "entity_manager.hpp"
-
+#include "components.hpp"
 #include <unordered_map>
 
 // Has to be inline to fix LNK2019 compile errors
@@ -18,6 +18,9 @@ namespace ecs
 	template<typename T>
 	class ComponentArray : public IComponentArray
 	{
+	public:
+		ComponentArray() = default;
+
 	public:
 		inline void insertData(Entity entity, T component)
 		{
@@ -71,5 +74,4 @@ namespace ecs
 
 		size_t size;
 	};
-
 }
