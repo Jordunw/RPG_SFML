@@ -22,6 +22,30 @@
     <Filter Include="IO">
       <UniqueIdentifier>{4c3584c5-8112-4359-a425-c34f324c4cc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{7ecbcfdf-51cf-4995-b119-40aa0e206ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\Headers">
+      <UniqueIdentifier>{b44101aa-eb07-46ac-9a10-1078cc1d8f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\Source">
+      <UniqueIdentifier>{3fee7d4e-2e6d-4c7a-9aab-e908ba29fbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Headers">
+      <UniqueIdentifier>{c6542038-275a-4edb-967a-6b9f0c76c1db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ECS\Source">
+      <UniqueIdentifier>{96912fab-3f28-4b76-ab52-9f186a937727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Collision Detection">
+      <UniqueIdentifier>{e9180314-b2f4-44ca-9787-0a0533789dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\Types">
+      <UniqueIdentifier>{1db084b8-570e-450a-ae45-e4d67d0e1dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics\SFML Math">
+      <UniqueIdentifier>{db44a36b-1060-4997-9eb9-46fe46d6fb2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -33,35 +57,41 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="component_manager.cpp">
-      <Filter>ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="coordinator.cpp">
-      <Filter>ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="entity_manager.cpp">
-      <Filter>ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="entity_system.cpp">
-      <Filter>ECS</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EntityCreator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ArchiveData.cpp">
       <Filter>Archive_Data</Filter>
     </ClCompile>
-    <ClCompile Include="OutputTextManager.cpp">
-      <Filter>IO</Filter>
+    <ClCompile Include="RichText.cpp">
+      <Filter>IO\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>IO\Source</Filter>
     </ClCompile>
     <ClCompile Include="Autocomplete.cpp">
-      <Filter>IO</Filter>
+      <Filter>IO\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.cpp">
-      <Filter>IO</Filter>
+    <ClCompile Include="OutputTextManager.cpp">
+      <Filter>IO\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="component_manager.cpp">
+      <Filter>ECS\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="coordinator.cpp">
+      <Filter>ECS\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="entity_manager.cpp">
+      <Filter>ECS\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="entity_system.cpp">
+      <Filter>ECS\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitives.cpp">
+      <Filter>Physics\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionDetector.cpp">
+      <Filter>Physics\Collision Detection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,27 +110,6 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="component_array.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="component_manager.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="components.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="coordinator.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="entity_manager.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="entity_system.hpp">
-      <Filter>ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EntityCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -116,17 +125,56 @@
     <ClInclude Include="Hash.h">
       <Filter>Archive_Data</Filter>
     </ClInclude>
-    <ClInclude Include="OutputTextManager.h">
-      <Filter>IO</Filter>
-    </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>IO</Filter>
-    </ClInclude>
     <ClInclude Include="Autocomplete.h">
-      <Filter>IO</Filter>
+      <Filter>IO\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.hpp">
-      <Filter>IO</Filter>
+    <ClInclude Include="InputManager.h">
+      <Filter>IO\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputTextManager.h">
+      <Filter>IO\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RichText.hpp">
+      <Filter>IO\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="component_array.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="component_manager.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="components.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="coordinator.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="entity_manager.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="entity_system.hpp">
+      <Filter>ECS\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Physics\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitives.h">
+      <Filter>Physics\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionDetector.h">
+      <Filter>Physics\Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorFunctions.h">
+      <Filter>Physics\SFML Math</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetectorTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RaycastResult.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

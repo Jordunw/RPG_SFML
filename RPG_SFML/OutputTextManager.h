@@ -1,11 +1,19 @@
 #pragma once
-#include "Text.h"
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/View.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include "RichText.hpp"
 #include <string>
 #include <vector>
 #include <map>
 #include <queue>
 #include <assert.h>
 #include <memory>
+
+enum class Fonts {
+	unicode = 0,
+	lato = 1
+};
 
 constexpr float oneThird = .3333333333333333333f;
 constexpr float twoThirds = .6666666666666666667f;
@@ -21,7 +29,7 @@ class OutputTextManager
     
 	sf::View view;
     
-	std::map<int, Text> textMap;
+	std::map<int, sfe::RichText> textMap;
     
 	int textCounter = 0;
     
@@ -40,12 +48,12 @@ class OutputTextManager
     
 	sf::FloatRect getLastTextBounds() {
 		if (textMap.size() > 0)
-			return textMap.at(textCounter - 1).getText().getGlobalBounds();
+			return textMap.at(textCounter - 1).getGlobalBounds();
 		return { 0,0,0,0 };
 	}
 	sf::Vector2f getFirstTextPos() {
 		if (textCounter > 74)
-			return textMap.at(textCounter - 74).getText().getPosition();
+			return textMap.at(textCounter - 74).getPosition();
 		return { 0,0 };
 	}
     
@@ -65,25 +73,22 @@ class OutputTextManager
 	// `i = italics
 	// `r = regular
 	// example: "`b`(093,026,246)Bold Purple`d
-	void print(const std::wstring str, sf::Font& font, const int size);
+	void print(const std::wstring& str, sf::Font& font, const int size);
 	// add text to buffer
 	// wstr
-	void print(const std::wstring& str,
-               const sf::Color& c = sf::Color::White,
-               int size = 16,
-               unsigned int style = sf::Text::Style::Regular,
-               const Fonts& font = Fonts::unicode);
+	//void print(const std::wstring& str,
+    //           const sf::Color& c = sf::Color::White,
+    //           int size = 16,
+    //           unsigned int style = sf::Text::Style::Regular,
+    //           const Fonts& font = Fonts::unicode);
 	// str
-	void print(const std::string& str,
-               const sf::Color& c = sf::Color::White,
-               const int& size = 16,
-               const unsigned int& style = sf::Text::Style::Regular,
-               const Fonts& font = Fonts::unicode);
+	//void print(const std::string& str,
+    //           const sf::Color& c = sf::Color::White,
+    //           const int& size = 16,
+    //           const unsigned int& style = sf::Text::Style::Regular,
+    //           const Fonts& font = Fonts::unicode);
 	// outputs bold red text. for use with error messages such as "this command does not exist"
-	void printError(const std::wstring& str, const int size = 16, const Fonts& font = Fonts::unicode) { print(str, sf::Color::Red, size, sf::Text::Style::Bold, font); }
-	void printError(const std::string& str, const int size = 16, const Fonts& font = Fonts::unicode) { print(str, sf::Color::Red, size, sf::Text::Style::Bold, font); }
+	void printError(const std::wstring& str, int size, sf::Font& font) { print(str, font, size); }
     
 	void clear(); // clear everything in the output
-    
-	void style(Text& text, unsigned int style);
 };

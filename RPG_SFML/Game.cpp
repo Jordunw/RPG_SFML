@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <cstdio>
 #include "Hash.h"
-#include <SDL2/SDL.h>
 
 void Game::run()
 {
@@ -34,7 +33,7 @@ void Game::init()
 	outputManager.resetView(sf::FloatRect(0, 0, (oneThird - .01f) * settingsData.screenW, settingsData.screenH * (twoThirds - .06f)));
 	outputManager.setViewport(sf::FloatRect(twoThirds + .01f, .015f, 0.3233f, twoThirds - .06f));
 
-	inputTextDrawable.setFont(outputManager.getFont(Fonts::unicode));
+	inputTextDrawable.setFont(*outputManager.getFont(Fonts::unicode));
 	inputTextDrawable.setPos({ inputBoxBounds.left + 2, inputBoxBounds.top + 6 });
 	inputTextDrawable.color(sf::Color::White);
 	inputTextDrawable.size(16);

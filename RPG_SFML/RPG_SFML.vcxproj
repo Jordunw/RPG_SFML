@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -120,7 +120,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Forest\Desktop\libraries\thor\include;C:\Users\Forest\Desktop\libraries\glm;C:\Users\Forest\Desktop\include\SFML-2.5.1_x64\include;C:\Users\fores\Desktop\libraries\SFML-2.5.1\include;C:\Users\fores\Desktop\libraries\glm</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Users\Forest\Desktop\libraries\thor\include;D:\Users\Forest\Desktop\libraries\glm;D:\Users\Forest\Desktop\include\SFML-2.5.1_x64\include;C:\Users\Forest\Desktop\libraries\SFML-2.5.1\include;D:\Users\Forest\Desktop\libraries\cereal\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +146,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.cpp" />
     <ClCompile Include="ArchiveData.cpp" />
     <ClCompile Include="Autocomplete.cpp" />
     <ClCompile Include="Borders.cpp" />
@@ -156,14 +156,17 @@
     <ClCompile Include="entity_system.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IntersectionDetector.cpp" />
     <ClCompile Include="OutputTextManager.cpp" />
+    <ClCompile Include="Primitives.cpp" />
+    <ClCompile Include="RichText.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\libraries\RichText-master\RichText.hpp" />
     <ClInclude Include="ArchiveData.h" />
     <ClInclude Include="Autocomplete.h" />
     <ClInclude Include="Borders.h" />
+    <ClInclude Include="CollisionDetectorTest.h" />
     <ClInclude Include="components.hpp" />
     <ClInclude Include="component_array.hpp" />
     <ClInclude Include="component_manager.hpp" />
@@ -174,12 +177,18 @@
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="IntersectionDetector.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="OutputTextManager.h" />
+    <ClInclude Include="Primitives.h" />
+    <ClInclude Include="Ray.h" />
+    <ClInclude Include="RaycastResult.h" />
+    <ClInclude Include="RichText.hpp" />
     <ClInclude Include="Serialization.h" />
     <ClInclude Include="SettingsData.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Text.h" />
+    <ClInclude Include="VectorFunctions.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

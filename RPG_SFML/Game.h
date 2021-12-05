@@ -15,7 +15,6 @@
 #include <filesystem>
 #include <set>
 
-#include "Text.h"
 //#include "Player.h"
 #include "Borders.h"
 #include "coordinator.hpp"
@@ -101,7 +100,7 @@ private:
 	InputManager inputManager;
 	bool gettingText = false;
 	std::string inputText;
-	Text inputTextDrawable;
+	sf::Text inputTextDrawable;
 
 	std::shared_ptr<autoc::Node> autoComplete = std::make_shared<autoc::Node>();
 	std::set<std::string> acWordList;

@@ -104,7 +104,7 @@ sf::Uint32 RichText::Line::getCharacter(std::size_t pos) const
 
 
 ////////////////////////////////////////////////////////////////////////////////
-const std::vector<sf::Text> &RichText::Line::getTexts() const
+std::vector<sf::Text> &RichText::Line::getTexts()
 {
     return m_texts;
 }
@@ -424,7 +424,7 @@ sf::Uint32 RichText::getCharacter(std::size_t line, std::size_t pos) const
 
 
 ////////////////////////////////////////////////////////////////////////////////
-const std::vector<RichText::Line> &RichText::getLines() const
+std::vector<RichText::Line> &RichText::getLines()
 {
     return m_lines;
 }

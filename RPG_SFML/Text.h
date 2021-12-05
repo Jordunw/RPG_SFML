@@ -11,7 +11,7 @@ enum class Fonts {
 class Text
 {
 private:
-    sfe::RichText text;
+    sf::Text text;
 
 public:
     Text(){}
